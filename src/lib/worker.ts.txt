@@ -1,0 +1,45 @@
+import 'dotenv/config';
+import { Worker, Job } from 'bullmq';
+import IORedis from 'ioredis';
+
+console.log('Site builder worker started');
+
+const redisUrl = process.env.REDIS_URL || 'redis://localhost:6379';
+const connection = new IORedis(redisUrl, {
+  maxRetriesPerRequest: 3,
+  enableReadyCheck: false,
+});
+
+console.log(`Connected to Redis at ${redisUrl}`);
+const queueName = 'site-builder';
+console.log(`Processing jobs from queue: ${queueName}`);
+
+const worker = new Worker(
+  queueName,
+  async (job: Job) => {
+    console.log(`Processing job ${job.id} (${job.name})`);
+    console.log('Data:', job.data);
+
+    // simulate stages
+    await simulateWork('Provisioning infra', 1000);
+    await simulateWork('Installing WordPress', 1500);
+    await simulateWork('Applying template', 1000);
+
+    return { success: true, siteUrl: `https://${job.data.domain}` };
+  },
+  { connection }
+);
+
+async function simulateWork(stage: string, ms: number) {
+  console.log(`${stage}...`);
+  return new Promise(r => setTimeout(r, ms));
+}
+
+worker.on('completed', job => console.log(`Job ${job.id} done`));
+worker.on('failed', (job, err) => console.error(`Job ${job?.id} failed:`, err));
+
+process.on('SIGINT', async () => {
+  console.log('Shutting down');
+  await worker.close();
+  process.exit(0);
+});
