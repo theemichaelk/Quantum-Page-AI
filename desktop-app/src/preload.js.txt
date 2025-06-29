@@ -1,0 +1,24 @@
+// desktop-app/src/preload.js
+
+const { contextBridge, ipcRenderer } = require('electron');
+
+// Expose only safe IPC methods to the renderer process
+contextBridge.exposeInMainWorld('api', {
+  // Invoke an AI task in the main process
+  performAiTask: (taskType, params) =>
+    ipcRenderer.invoke('perform-ai-task', taskType, params),
+
+  // Listen for the 'New Site' menu event
+  onMenuNewSite: (listener) =>
+    ipcRenderer.on('menu-new-site', () => listener()),
+
+  // Listen for SEO Analyzer command
+  onOpenSeoAnalyzer: (listener) =>
+    ipcRenderer.on('open-seo-analyzer', () => listener()),
+
+  // Listen for Content Generator command
+  onOpenContentGenerator: (listener) =>
+    ipcRenderer.on('open-content-generator', () => listener()),
+
+  // Add more IPC methods here as needed…
+});

@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Job {
+  id             String   @id @default(uuid())
+  status         String   @default("pending") // pending, in_progress, complete, error
+  progress       Int      @default(0)
+  fields         String?  // JSON string of form fields
+  siteUrls       String?  // JSON string of generated site URLs
+  pdfUrl         String?  // URL to generated PDF
+  cloudResources String?  // JSON string of cloud resources
+  error          String?  // Error message if any
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+/// ------------------------------
+///  Site records for each built website
+/// ------------------------------
+model Site {
+  id        String   @id @default(uuid())
+  url       String   // Root URL of the created site
+  platform  String   // google | aws | azure | wordpress | static
+  credentials String? // Optional: JSON/API token or WP admin credentials
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  /// Relation: one Site has many keyword rank records
+  rankTrackers RankTracker[]
+}
+
+/// ------------------------------
+///  Keyword ranking history per site
+/// ------------------------------
+model RankTracker {
+  id            String   @id @default(uuid())
+  siteId        String
+  keyword       String
+  lastPosition  Int?
+  lastCheckedAt DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  /// Relation back to Site
+  site Site @relation(fields: [siteId], references: [id])
+}

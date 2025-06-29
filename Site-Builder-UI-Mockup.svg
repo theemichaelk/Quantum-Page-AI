@@ -1,0 +1,63 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#0F1115" />
+
+  <!-- Top Bar (Header from DashboardLayout) -->
+  <rect x="0" y="0" width="1200" height="60" fill="#171B22" />
+  <text x="30" y="38" font-family="Sora, sans-serif" font-size="22" font-weight="600" fill="#E9F1FF">Quantum-Page AI</text>
+  <rect x="1080" y="15" width="90" height="30" rx="15" fill="#1D2029" />
+  <text x="1125" y="35" font-family="Inter, sans-serif" font-size="14" fill="#E9F1FF" text-anchor="middle">Menu</text>
+
+  <!-- Sidebar (Simplified) -->
+  <rect x="0" y="60" width="80" height="740" fill="#171B22" />
+  <circle cx="40" cy="120" r="20" fill="#28C8FF" opacity="0.2" />
+  <text x="40" y="125" font-family="Inter, sans-serif" font-size="12" fill="#28C8FF" text-anchor="middle">🚀</text>
+
+  <!-- Main Content Area -->
+  <rect x="80" y="60" width="1120" height="740" fill="#0F1115" />
+
+  <!-- Page Title -->
+  <text x="100" y="100" font-family="Sora, sans-serif" font-size="28" font-weight="600" fill="#E9F1FF">Create New Site</text>
+  <text x="100" y="130" font-family="Inter, sans-serif" font-size="14" fill="#A0A8B8">Build SEO-optimized websites with AI-powered content generation</text>
+
+  <!-- How it works info box -->
+  <rect x="100" y="160" width="1080" height="70" rx="8" fill="#171B22" opacity="0.5" stroke="#3D4354" stroke-width="1" />
+  <circle cx="125" cy="195" r="15" fill="#FFB547" opacity="0.2" />
+  <text x="125" y="200" font-family="Inter, sans-serif" font-size="14" fill="#FFB547" text-anchor="middle">💡</text>
+  <text x="155" y="185" font-family="Inter, sans-serif" font-size="14" font-weight="500" fill="#E9F1FF">How it works</text>
+  <text x="155" y="205" font-family="Inter, sans-serif" font-size="12" fill="#A0A8B8">Fill in the form, and our AI will create your Google Site with content, media, and links.</text>
+
+  <!-- Form Area -->
+  <rect x="100" y="250" width="1080" height="450" rx="12" fill="#171B22" />
+
+  <!-- Keywords Section -->
+  <text x="130" y="290" font-family="Sora, sans-serif" font-size="18" font-weight="600" fill="#E9F1FF">Keywords</text>
+  <text x="130" y="310" font-family="Inter, sans-serif" font-size="12" fill="#A0A8B8">Enter up to 8 keywords or phrases for your site</text>
+  <rect x="130" y="330" width="250" height="30" rx="4" fill="#1D2029" />
+  <text x="140" y="350" font-family="Inter, sans-serif" font-size="12" fill="#A0A8B8">Keyword 1</text>
+  <rect x="400" y="330" width="250" height="30" rx="4" fill="#1D2029" />
+  <text x="410" y="350" font-family="Inter, sans-serif" font-size="12" fill="#A0A8B8">Keyword 2</text>
+  <rect x="670" y="330" width="250" height="30" rx="4" fill="#1D2029" />
+  <text x="680" y="350" font-family="Inter, sans-serif" font-size="12" fill="#A0A8B8">Keyword 3</text>
+  <rect x="940" y="330" width="220" height="30" rx="4" fill="#1D2029" />
+  <text x="950" y="350" font-family="Inter, sans-serif" font-size="12" fill="#A0A8B8">Keyword 4</text>
+
+  <!-- Google Account -->
+  <text x="130" y="390" font-family="Sora, sans-serif" font-size="18" font-weight="600" fill="#E9F1FF">Google Account Email</text>
+  <text x="130" y="410" font-family="Inter, sans-serif" font-size="12" fill="#A0A8B8">We'll use this to create your Google Site</text>
+  <rect x="130" y="430" width="1020" height="30" rx="4" fill="#1D2029" />
+  <text x="140" y="450" font-family="Inter, sans-serif" font-size="12" fill="#A0A8B8">your.email@gmail.com</text>
+
+  <!-- Business Description -->
+  <text x="130" y="490" font-family="Sora, sans-serif" font-size="18" font-weight="600" fill="#E9F1FF">Business Description</text>
+  <text x="130" y="510" font-family="Inter, sans-serif" font-size="12" fill="#A0A8B8">Describe your business, products, or services</text>
+  <rect x="130" y="530" width="1020" height="80" rx="4" fill="#1D2029" />
+  <text x="140" y="550" font-family="Inter, sans-serif" font-size="12" fill="#A0A8B8">Provide a detailed description of your business...</text>
+
+  <!-- Start Building Button -->
+  <rect x="130" y="630" width="1020" height="50" rx="8" fill="#28C8FF" />
+  <text x="640" y="660" font-family="Sora, sans-serif" font-size="20" font-weight="600" fill="#0F1115" text-anchor="middle">Start Building</text>
+  <circle cx="580" cy="655" r="10" fill="#0F1115" />
+  <text x="580" y="660" font-family="Inter, sans-serif" font-size="14" fill="#28C8FF" text-anchor="middle">🚀</text>
+
+</svg>

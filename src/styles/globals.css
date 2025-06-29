@@ -1,0 +1,236 @@
+/* Tailwind CSS Directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* CSS Variables */
+:root {
+  /* Core Colors */
+  --color-carbon: #0F1115;
+  --color-onyx: #171B22;
+  --color-neon-azure: #28C8FF;
+  --color-quantum-violet: #7B6CFF;
+  --color-lime-pulse: #C6FF4F;
+  --color-signal-amber: #FFB547;
+  --color-critical-red: #FF5470;
+  --color-ice-white: #E9F1FF;
+  --color-text-secondary: #A0A8B8;
+  --color-text-muted: #3D4354;
+  
+  /* Shadows and Effects */
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.25);
+  --shadow-glow-primary: 0 0 15px rgba(40, 200, 255, 0.5);
+  --shadow-glow-secondary: 0 0 15px rgba(123, 108, 255, 0.5);
+  --shadow-glow-success: 0 0 15px rgba(198, 255, 79, 0.5);
+  --shadow-glow-error: 0 0 15px rgba(255, 84, 112, 0.5);
+  
+  /* Animation Timings */
+  --transition-fast: 0.2s;
+  --transition-medium: 0.3s;
+  --transition-slow: 0.5s;
+}
+
+/* Base Styles */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-carbon text-ice-white font-sans;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sora font-semibold;
+  }
+  
+  h1 {
+    @apply text-3xl md:text-4xl;
+  }
+  
+  h2 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  h3 {
+    @apply text-xl md:text-2xl;
+  }
+  
+  a {
+    @apply text-neon-azure transition-colors duration-200;
+  }
+  
+  a:hover {
+    @apply text-quantum-violet;
+  }
+  
+  button, [type='button'], [type='submit'] {
+    @apply transition-all duration-200;
+  }
+  
+  code {
+    @apply font-mono text-sm bg-onyx px-1.5 py-0.5 rounded;
+  }
+}
+
+/* Component Classes */
+@layer components {
+  .card {
+    @apply bg-onyx rounded-lg p-4 shadow-md;
+  }
+  
+  .card-elevated {
+    @apply bg-[#1D2029] rounded-lg p-4 shadow-lg;
+  }
+  
+  .btn-primary {
+    @apply bg-neon-azure hover:bg-opacity-90 text-carbon font-medium py-2 px-4 rounded-md transition-all;
+  }
+  
+  .btn-secondary {
+    @apply bg-quantum-violet hover:bg-opacity-90 text-ice-white font-medium py-2 px-4 rounded-md transition-all;
+  }
+  
+  .btn-outline {
+    @apply border border-neon-azure text-neon-azure hover:bg-neon-azure hover:bg-opacity-10 font-medium py-2 px-4 rounded-md transition-all;
+  }
+  
+  .input-field {
+    @apply bg-[#1D2029] border border-[#3D4354] rounded-md px-3 py-2 text-ice-white placeholder-text-secondary focus:outline-none focus:ring-1 focus:ring-neon-azure transition-all;
+  }
+  
+  .glass-panel {
+    @apply bg-onyx bg-opacity-80 backdrop-blur-md border border-[#3D4354] border-opacity-30 rounded-xl;
+  }
+  
+  .sparkline {
+    @apply stroke-neon-azure stroke-2 fill-none;
+  }
+  
+  .data-card {
+    @apply card flex flex-col gap-2 transition-all hover:shadow-glow-primary;
+  }
+  
+  .stat-value {
+    @apply font-sora text-2xl font-semibold;
+  }
+  
+  .stat-label {
+    @apply text-text-secondary text-sm;
+  }
+  
+  .trend-up {
+    @apply text-lime-pulse;
+  }
+  
+  .trend-down {
+    @apply text-critical-red;
+  }
+  
+  .trend-neutral {
+    @apply text-signal-amber;
+  }
+}
+
+/* Utility Classes */
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-neon-azure to-quantum-violet;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .shadow-glow-primary {
+    box-shadow: var(--shadow-glow-primary);
+  }
+  
+  .shadow-glow-secondary {
+    box-shadow: var(--shadow-glow-secondary);
+  }
+  
+  .shadow-glow-success {
+    box-shadow: var(--shadow-glow-success);
+  }
+  
+  .shadow-glow-error {
+    box-shadow: var(--shadow-glow-error);
+  }
+  
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-neon-azure) var(--color-onyx);
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: var(--color-onyx);
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: var(--color-neon-azure);
+    border-radius: 20px;
+  }
+}
+
+/* Animations */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(40, 200, 255, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(40, 200, 255, 0.6);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Shimmer loading effect */
+.shimmer {
+  background: linear-gradient(
+    to right,
+    var(--color-onyx) 8%,
+    var(--color-text-muted) 18%,
+    var(--color-onyx) 33%
+  );
+  background-size: 1200px 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1200px 0;
+  }
+  100% {
+    background-position: 1200px 0;
+  }
+}
+
+/* Glass morphism effect */
+.glass-effect {
+  background: rgba(23, 27, 34, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
